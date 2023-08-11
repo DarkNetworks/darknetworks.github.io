@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosploit-ESP Documentation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#rosploit-esp-documentation-information">Rosploit-ESP Documentation: Information</a>
+<ul>
+<li></li>
+<li><a href="#update-changelogs-latest-update-rosploit-esp-1.0">Update Changelogs (Latest Update: Rosploit-ESP 1.0)</a></li>
+<li><a href="#rosploit-esp-tree">Rosploit ESP Tree</a></li>
+<li><a href="#rosploit-esp-example-ui">Rosploit-ESP Example UI</a></li>
+</ul>
+</li>
+<li><a href="#rosploit-esp-documentation-main-module">Rosploit-ESP Documentation: Main Module</a>
+<ul>
+<li><a href="#load-rosploit-esp">Load Rosploit-ESP</a></li>
+<li><a href="#un-load-rosploit-esp">Un-load Rosploit-ESP</a></li>
+<li><a href="#get-rosploit-esp-version">Get Rosploit-ESP Version</a></li>
+<li><a href="#find-first-rosploit-esp-instance">Find First Rosploit-ESP Instance</a></li>
+</ul>
+</li>
+<li><a href="#rosploit-esp-documentation-instance-esp-module">Rosploit-ESP Documentation: Instance-ESP Module</a>
+<ul>
+<li><a href="#new-esp-instance">New ESP Instance</a></li>
+<li><a href="#remove-esp-instance">Remove ESP Instance</a></li>
+<li><a href="#set-color-config-on-esp-instance">Set Color Config On ESP Instance</a></li>
+</ul>
+</li>
+<li><a href="#rosploit-esp-documentation-player-esp-module">Rosploit-ESP Documentation: Player-ESP Module</a>
+<ul>
+<li><a href="#toggle-playeresp">Toggle PlayerESP</a></li>
+<li><a href="#set-esp-state">Set ESP State</a></li>
+<li><a href="#set-color-config-for-player">Set Color Config For Player</a></li>
+<li><a href="#add-friendly-players">Add Friendly Players</a></li>
+<li><a href="#remove-friendly-players">Remove Friendly Players</a></li>
+<li><a href="#friends-varaible">Friends Varaible</a></li>
+<li><a href="#teams-varaible">Teams Varaible</a></li>
+<li><a href="#playeresp-state-variable">PlayerESP State Variable</a></li>
+</ul>
+</li>
+<li><a href="#rosploit-esp-documentation-configuration-module">Rosploit-ESP Documentation: Configuration Module</a>
+<ul>
+<li><a href="#instance-esp">Instance-ESP</a></li>
+<li><a href="#player-esp">Player-ESP</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="rosploit-esp-documentation-information">Rosploit-ESP Documentation: Information</h1>
+<p>Official Documentation for Rosploit-ESP Library! This ESP Library is <strong>NOT Stream-Proof</strong>.</p>
+<h3 id="pros">+ Pros</h3>
+<ul>
+<li>Perfect Outline on Object/Player</li>
+<li>Built-In PlayerESP</li>
+<li>Configurable Theme</li>
+<li>Player Team Switch</li>
+<li>10 Preset Team Colors</li>
+<li>High-Quality Documentation</li>
+</ul>
+<h3 id="cons">- Cons</h3>
+<ul>
+<li>Not Streamproof</li>
+<li>No Tracers</li>
+<li>No Rainbow Color Support</li>
+<li>No Gradient Color Support</li>
+<li>Does not support naming Player or Non-player Instances.</li>
+</ul>
+<h2 id="update-changelogs-latest-update-rosploit-esp-1.0">Update Changelogs (Latest Update: <em>Rosploit-ESP 1.0</em>)</h2>
+<p>All Updates and their changelogs.</p>
+<h3 id="latest-rosploit-esp-1.0-update-changelog">[Latest] Rosploit-ESP 1.0 Update Changelog</h3>
+<ul>
+<li>Configurable Player ESP, With team switching, and custom color themes.</li>
+<li>Instance ESP for adding ESP  to non-player objects.</li>
+<li>Toggleable ESP without complete destruction.</li>
+</ul>
+<h2 id="rosploit-esp-tree">Rosploit ESP Tree</h2>
+<p>The Full Rosploit-ESP Tree.</p>
+<pre class=" language-lua"><code class="prism  language-lua">Rosploit<span class="token operator">-</span>ESP <span class="token comment">-- Rosploit 1.0 Tree</span>
+<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">Unload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Unloads Rosploit-ESP</span>
+<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">FindFirstESPInstance</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span> <span class="token comment">-- Finds first ESP Instance from the parent.</span>
+<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">CurrentVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Retruns current Rosploit-ESP Version.</span>
+<span class="token operator">|</span><span class="token operator">-</span> InstsanceESP
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">NewInstance</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> name<span class="token punctuation">,</span> outlineColor<span class="token punctuation">,</span> outlineTransparency<span class="token punctuation">,</span> fillColor<span class="token punctuation">,</span> fillTransparency<span class="token punctuation">)</span>
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">RemoveInstance</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token comment">-- removes an existing esp instance</span>
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">SetConfig</span><span class="token punctuation">(</span>configTable<span class="token punctuation">,</span> path<span class="token punctuation">)</span> <span class="token comment">-- sets the color table of the esp instance</span>
+<span class="token operator">|</span><span class="token operator">-</span> PlayerESP
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">ToggleESP</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Toggles ESP to the opposite of Current State</span>
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">SetESPState</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token comment">-- Sets the state of the esp</span>
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">SetConfig</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> playerName<span class="token punctuation">)</span> <span class="token comment">-- sets the color table of the esp for the players</span>
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">AddFriend</span><span class="token punctuation">(</span>playerName<span class="token punctuation">)</span> <span class="token comment">-- Adds friendly player color</span>
+	<span class="token operator">|</span><span class="token operator">-</span> <span class="token function">RemoveFriend</span><span class="token punctuation">(</span>playerName<span class="token punctuation">)</span> <span class="token comment">-- Removes friendly player color</span>
+	<span class="token operator">|</span><span class="token operator">-</span> Friends <span class="token comment">-- Table with all of the names of friendly players</span>
+	<span class="token operator">|</span><span class="token operator">-</span> Teams <span class="token comment">-- Table with all teams existant</span>
+	<span class="token operator">|</span><span class="token operator">-</span> State <span class="token comment">-- A bool value with the state of the PlayerESP</span>
+<span class="token operator">|</span><span class="token operator">-</span> Configuration
+	<span class="token operator">|</span><span class="token operator">-</span> InstanceESP
+		<span class="token operator">|</span><span class="token operator">-</span> OutlineColor <span class="token comment">-- RGB Color Value</span>
+		<span class="token operator">|</span><span class="token operator">-</span> OutlineTransparency <span class="token comment">-- RGB Color Value</span>
+		<span class="token operator">|</span><span class="token operator">-</span> FillColor <span class="token comment">-- RGB Color Value</span>
+		<span class="token operator">|</span><span class="token operator">-</span> FillTransparency <span class="token comment">-- RGB Color Value</span>
+	<span class="token operator">|</span><span class="token operator">-</span> PlayerESP
+		<span class="token operator">|</span><span class="token operator">-</span> Enemies <span class="token comment">-- Enemies Config</span>
+			<span class="token operator">|</span><span class="token operator">-</span> OutlineColor <span class="token comment">-- RGB Color Value</span>
+			<span class="token operator">|</span><span class="token operator">-</span> OutlineTransparency <span class="token comment">-- RGB Color Value</span>
+			<span class="token operator">|</span><span class="token operator">-</span> FillColor <span class="token comment">-- RGB Color Value</span>
+			<span class="token operator">|</span><span class="token operator">-</span> FillTransparency <span class="token comment">-- RGB Color Value</span>
+		<span class="token operator">|</span><span class="token operator">-</span> Friends <span class="token comment">-- Friends Config</span>
+			<span class="token operator">|</span><span class="token operator">-</span> OutlineColor <span class="token comment">-- RGB Color Value</span>
+			<span class="token operator">|</span><span class="token operator">-</span> OutlineTransparency <span class="token comment">-- RGB Color Value</span>
+			<span class="token operator">|</span><span class="token operator">-</span> FillColor <span class="token comment">-- RGB Color Value</span>
+			<span class="token operator">|</span><span class="token operator">-</span> FillTransparency <span class="token comment">-- RGB Color Value</span>
+</code></pre>
+<h2 id="rosploit-esp-example-ui">Rosploit-ESP Example UI</h2>
+<p>Example UI That Uses Rosploit-ESP with most features! The example UI utilizes the Orion UI Library <code>Rosploit Edit</code> for the visual UI Interface.</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token function">loadstring</span><span class="token punctuation">(</span>game<span class="token punctuation">:</span><span class="token function">HttpGet</span><span class="token punctuation">(</span><span class="token string">'https://raw.githubusercontent.com/Dark-Networks/Rosploit/esp/Example.lua'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h1 id="rosploit-esp-documentation-main-module">Rosploit-ESP Documentation: Main Module</h1>
+<p>Documentation for Rosploit-ESP Main Module.</p>
+<h2 id="load-rosploit-esp">Load Rosploit-ESP</h2>
+<p>First you need to define the <code>RosploitESP</code> Variable to use the library. This will always load the latest version of <code>RosploitESP</code>.</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> RosploitESP <span class="token operator">=</span> <span class="token function">loadstring</span><span class="token punctuation">(</span>game<span class="token punctuation">:</span><span class="token function">HttpGet</span><span class="token punctuation">(</span><span class="token string">'https://raw.githubusercontent.com/Dark-Networks/Rosploit/esp/Latest.lua'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="un-load-rosploit-esp">Un-load Rosploit-ESP</h2>
+<p>Unloading <code>Rosploit-ESP</code> Prevents further creation of any more instances, see <code>Configuration</code> module to destroy all instances of ESP upon unloading.</p>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">:</span><span class="token function">Unload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Completely Unloads Rosploit-ESP</span>
+</code></pre>
+<h2 id="get-rosploit-esp-version">Get Rosploit-ESP Version</h2>
+<p>Get the current version of <code>Rosploit-ESP</code>.</p>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">:</span><span class="token function">GetVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Return Current Rosploit Version: Ex. "Rosploit-ESP 1.0"</span>
+</code></pre>
+<h2 id="find-first-rosploit-esp-instance">Find First Rosploit-ESP Instance</h2>
+<p>Like roblox’s <code>FindFirstChildWhichIsA()</code> but made to find only RosploitESP Instances.</p>
+<ul>
+<li><code>parent</code>: Parent folder/model to search for RosploitESP Instances.</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">:</span><span class="token function">FindFirstESPInstance</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span>
+</code></pre>
+<h1 id="rosploit-esp-documentation-instance-esp-module">Rosploit-ESP Documentation: Instance-ESP Module</h1>
+<p>This is about the <code>InstanceESP</code> Module for Rosploit</p>
+<h2 id="new-esp-instance">New ESP Instance</h2>
+<p>Creates a new ESP Instance for non-player instances.</p>
+<ul>
+<li><code>parent</code>: Parent of the ESP Instance. <em><strong>Required</strong></em></li>
+<li><code>outlineColor</code>: Color of the outline on the Instance. <em><strong>Optional</strong></em></li>
+<li><code>outlineTransparency</code>: Transparency of the outline on the instance <em><strong>Optional</strong></em></li>
+<li><code>outlineColor</code>: Color of the fill on the Instance. <em><strong>Optional</strong></em></li>
+<li><code>outlineTransparency</code>: Transparency of the fill on the instance <em><strong>Optional</strong></em></li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>InstnaceESP<span class="token punctuation">:</span><span class="token function">New</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> outlineColor<span class="token punctuation">,</span> outlineTransparency<span class="token punctuation">,</span> fillColor<span class="token punctuation">,</span>  fillTransparency<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="remove-esp-instance">Remove ESP Instance</h2>
+<p>Removes an existing ESP instance for non-player instances.</p>
+<ul>
+<li><code>path</code>: Path to the ESP Instance</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>InstanceESP<span class="token punctuation">:</span><span class="token function">Remove</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="set-color-config-on-esp-instance">Set Color Config On ESP Instance</h2>
+<p>Set the color settings for ESP Instances</p>
+<ul>
+<li><code>table</code>: Table with all of the colors for the ESP Instance. See the configuration module section to create a table with the needed colors.</li>
+<li><code>path</code>: Path to the ESP Instance</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> ColorTable <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token comment">-- See configuration module section for this</span>
+<span class="token punctuation">}</span>
+
+RosploitESP<span class="token punctuation">.</span>InstanceESP<span class="token punctuation">:</span><span class="token function">SetColor</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> path<span class="token punctuation">)</span>
+</code></pre>
+<h1 id="rosploit-esp-documentation-player-esp-module">Rosploit-ESP Documentation: Player-ESP Module</h1>
+<p>This is about the <code>InstanceESP</code> Module for Rosploit</p>
+<h2 id="toggle-playeresp">Toggle PlayerESP</h2>
+<p>Toggle the state of PlayerESP</p>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">:</span><span class="token function">ToggleESP</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="set-esp-state">Set ESP State</h2>
+<p>Set the state of PlayerESP</p>
+<ul>
+<li><code>state</code>: Bool value of the current state of the PlayerESP.</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">:</span><span class="token function">SetState</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="set-color-config-for-player">Set Color Config For Player</h2>
+<p>Set the Color Config For A Specific Player or All Players.</p>
+<ul>
+<li><code>table</code>: Config table for the ESP.</li>
+<li><code>playerName</code>: Name of player to change color of. Can set <code>playerName</code> to <code>All</code>. Should not be a display name.</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosplitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">:</span><span class="token function">SetConfig</span><span class="token punctuation">(</span>table<span class="token punctuation">,</span> playerName<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="add-friendly-players">Add Friendly Players</h2>
+<p>Adds Friendly Players To A Different Color Theme.</p>
+<ul>
+<li><code>playerName</code>: Name of player add friend. Should not be a display name.</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">:</span><span class="token function">AddFriend</span><span class="token punctuation">(</span>playerName<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="remove-friendly-players">Remove Friendly Players</h2>
+<p>Removes Friendly Players From Their Special Color Theme</p>
+<ul>
+<li><code>playerName</code>: Name of player add friend. Should not be a display name.</li>
+</ul>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">:</span><span class="token function">RemoveFriend</span><span class="token punctuation">(</span>playerName<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="friends-varaible">Friends Varaible</h2>
+<p>Variable with every added friend.</p>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Friends
+</code></pre>
+<h3 id="total-number-of-friends">Total Number Of Friends</h3>
+<p>The total number of Friends in your added friends.</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> TotalFriends <span class="token operator">=</span> <span class="token operator">#</span>RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Friends
+<span class="token comment">-- Or you could do</span>
+<span class="token keyword">local</span> TotalFriends <span class="token operator">=</span> table<span class="token punctuation">.</span><span class="token function">getn</span><span class="token punctuation">(</span>RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Friends<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="teams-varaible">Teams Varaible</h2>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Teams
+</code></pre>
+<h3 id="total-number-of-teams">Total Number Of Teams</h3>
+<p>The total number of Friends in your added friends.</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> TotalTeams <span class="token operator">=</span> <span class="token operator">#</span>RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Teams
+<span class="token comment">-- Or you could do</span>
+<span class="token keyword">local</span> TotalTeams <span class="token operator">=</span> table<span class="token punctuation">.</span><span class="token function">getn</span><span class="token punctuation">(</span>RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Teams<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="playeresp-state-variable">PlayerESP State Variable</h2>
+<p>Bool varaible containing the state of the <code>PlayerESP</code></p>
+<pre class=" language-lua"><code class="prism  language-lua">RosploitESP<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>State <span class="token comment">-- either true or false</span>
+</code></pre>
+<h1 id="rosploit-esp-documentation-configuration-module">Rosploit-ESP Documentation: Configuration Module</h1>
+<p>This is about the <code>Configuration</code> Module for Rosploit</p>
+<h2 id="instance-esp">Instance-ESP</h2>
+<p>This is an example theme for instance-esp</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> customTheme <span class="token operator">=</span> <span class="token punctuation">{</span>
+	OutlineColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	OutlineTransparency <span class="token operator">=</span> <span class="token number">0</span>
+	FillColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	FillTransparency <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+RosploitESP<span class="token punctuation">.</span>Configuration<span class="token punctuation">.</span>InstanceESP <span class="token operator">=</span> customTheme
+</code></pre>
+<h2 id="player-esp">Player-ESP</h2>
+<p>This is the example themes for player-esp</p>
+<h3 id="enemies">Enemies</h3>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> customTheme <span class="token operator">=</span> <span class="token punctuation">{</span>
+	OutlineColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	OutlineTransparency <span class="token operator">=</span> <span class="token number">0</span>
+	FillColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	FillTransparency <span class="token operator">=</span> <span class="token number">0.8</span>
+<span class="token punctuation">}</span>
+
+RosploitESP<span class="token punctuation">.</span>Configuration<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Enemies <span class="token operator">=</span> customTheme
+</code></pre>
+<h3 id="friends">Friends</h3>
+<p>Add custom theme to only friends</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> customTheme <span class="token operator">=</span> <span class="token punctuation">{</span>
+	OutlineColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	OutlineTransparency <span class="token operator">=</span> <span class="token number">0</span>
+	FillColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	FillTransparency <span class="token operator">=</span> <span class="token number">0.8</span>
+<span class="token punctuation">}</span>
+
+RosploitESP<span class="token punctuation">.</span>Configuration<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Friends <span class="token operator">=</span> customTheme
+</code></pre>
+<h3 id="both">Both</h3>
+<p>Add custom theme to both enemies and friends.</p>
+<pre class=" language-lua"><code class="prism  language-lua"><span class="token keyword">local</span> customTheme <span class="token operator">=</span> <span class="token punctuation">{</span>
+	OutlineColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	OutlineTransparency <span class="token operator">=</span> <span class="token number">0</span>
+	FillColor <span class="token operator">=</span> Color3<span class="token punctuation">.</span><span class="token function">fromRGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+	FillTransparency <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+RosploitESP<span class="token punctuation">.</span>Configuration<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Enemies <span class="token operator">=</span> customTheme
+RosploitESP<span class="token punctuation">.</span>Configuration<span class="token punctuation">.</span>PlayerESP<span class="token punctuation">.</span>Friends <span class="token operator">=</span> customTheme
+</code></pre>
+<hr>
+<p><em>©Dark Networks 2023</em></p>
+<p><em>Rosploit-ESP is Developed by Dark Networks under the MIT License. The main branch is where the licence can be found. Maintained by Dark Networks.</em></p>
+
+    </div>
+  </div>
+</body>
+
+</html>
